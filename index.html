@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Josabet's Family Child Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal: #3ab5b0;
+      --teal-dark: #2a9490;
+      --yellow: #f5c842;
+      --dark: #1a2e3b;
+      --text: #444;
+      --light: #f0fafa;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* NAV */
+    nav {
+      background: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--teal);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    nav ul a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 50px;
+    }
+
+    .nav-cta:hover { background: var(--teal-dark) !important; color: white !important; }
+
+    @media (max-width: 600px) {
+      nav ul { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #e8f8f8 0%, #fff9e6 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "☀️";
+      font-size: 8rem;
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      opacity: 0.15;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(58, 181, 176, 0.15);
+      color: var(--teal-dark);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 span { color: var(--teal); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal);
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 2px solid var(--teal);
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover { background: var(--teal); color: white; }
+
+    /* STATS */
+    .stats {
+      background: var(--teal);
+      padding: 32px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; color: white; }
+    .stat-num { font-size: 2rem; font-weight: 800; display: block; }
+    .stat-label { font-size: 0.85rem; opacity: 0.85; }
+
+    /* ABOUT */
+    .about {
+      padding: 80px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) { .about { grid-template-columns: 1fr; gap: 32px; } }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--teal) 0%, #2a9490 100%);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    .about-visual .big-icon { font-size: 4rem; margin-bottom: 16px; display: block; }
+    .about-visual h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+    .about-visual p { opacity: 0.85; font-size: 0.9rem; line-height: 1.6; }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .about-text p {
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about-text .highlight {
+      background: var(--light);
+      border-left: 4px solid var(--teal);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--teal-dark);
+      font-weight: 600;
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--light);
+      padding: 80px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: rgba(58, 181, 176, 0.15);
+      color: var(--teal-dark);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(58,181,176,0.15);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* WHY US */
+    .why {
+      padding: 80px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--light);
+    }
+
+    .feature .icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+    .feature h4 { font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+    .feature p { font-size: 0.85rem; color: #777; line-height: 1.5; }
+
+    /* CONTACT */
+    .contact {
+      background: linear-gradient(135deg, var(--dark) 0%, #1a3a4a 100%);
+      padding: 80px 24px;
+      color: white;
+    }
+
+    .contact .section-header h2 { color: white; }
+    .contact .section-label { background: rgba(255,255,255,0.1); color: #7de8e4; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 900px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #7de8e4;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .info-icon { font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+    .info-text { line-height: 1.5; }
+    .info-text a { color: #7de8e4; text-decoration: none; }
+    .info-text a:hover { text-decoration: underline; }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+
+    .contact-form textarea { height: 120px; resize: vertical; }
+
+    .contact-form button {
+      background: var(--teal);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .contact-form button:hover { background: var(--teal-dark); }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--teal); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="logo-circle">🌤️</div>
+      <div class="logo-text">
+        Josabet's Family Child Care
+        <span>Where your child is unique!</span>
+      </div>
+    </a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Enroll Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">📍 Dorchester, MA</div>
+    <h1>Where Every Child is <span>Unique</span> & Loved</h1>
+    <p>Licensed family child care in the heart of Dorchester. A safe, nurturing home where your child grows, learns, and thrives.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Schedule a Visit</a>
+      <a href="#services" class="btn-ghost">Learn More</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">❤️</span>
+      <span class="stat-label">Family-Centered Care</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">🏠</span>
+      <span class="stat-label">Licensed Home Setting</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">🌟</span>
+      <span class="stat-label">Every Child is Unique</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">📍</span>
+      <span class="stat-label">Dorchester, MA</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-visual">
+      <span class="big-icon">👨‍👩‍👧‍👦</span>
+      <h3>Yajaira Rodriguez</h3>
+      <p>Owner & Caregiver<br><br>Dedicated to providing a warm, safe, and loving environment where every child can be themselves.</p>
+    </div>
+    <div class="about-text">
+      <h2>A Home Away From Home</h2>
+      <p>At Josabet's Family Child Care, we believe every child deserves personalized attention and care. Our small, intimate setting means your child is never just a number — they're family.</p>
+      <p>Located in Dorchester, we serve families across the Boston area with flexible scheduling and a genuine commitment to your child's wellbeing and development.</p>
+      <div class="highlight">"Where your child is unique!"</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-header">
+      <span class="section-label">What We Offer</span>
+      <h2>Care That Fits Your Family</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🍼</span>
+        <h3>Infant Care</h3>
+        <p>Gentle, attentive care for your littlest ones in a safe, nurturing environment.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🧸</span>
+        <h3>Toddler Programs</h3>
+        <p>Age-appropriate activities that spark curiosity, creativity, and social skills.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📚</span>
+        <h3>Early Learning</h3>
+        <p>School readiness activities to help your child thrive when kindergarten comes.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌙</span>
+        <h3>Flexible Scheduling</h3>
+        <p>Full-day and part-time options to fit your family's busy schedule.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="section-header">
+      <span class="section-label">Why Josabet's</span>
+      <h2>The Josabet's Difference</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <span class="icon">🏡</span>
+        <h4>Home Setting</h4>
+        <p>Small group sizes mean more individual attention for your child.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🔒</span>
+        <h4>Licensed & Safe</h4>
+        <p>Fully licensed care you can trust, in a safe and clean environment.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🌎</span>
+        <h4>Bilingual</h4>
+        <p>English and Spanish speaking — your family feels at home.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">💛</span>
+        <h4>Family First</h4>
+        <p>We treat every child like our own. Because they deserve nothing less.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <span class="section-label">Get In Touch</span>
+      <h2>Ready to Enroll?</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <div class="info-item">
+          <span class="info-icon">👤</span>
+          <div class="info-text">Yajaira Rodriguez<br><em>Owner</em></div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div class="info-text">5 Woodward Park Street #2<br>Dorchester, MA 02125</div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📞</span>
+          <div class="info-text"><a href="tel:6173121502">(617) 312-1502</a></div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">✉️</span>
+          <div class="info-text">
+            <a href="mailto:josabetfamilychildcare@gmail.com">josabetfamilychildcare@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="tel" placeholder="Phone Number" />
+        <input type="email" placeholder="Email Address" required />
+        <input type="text" placeholder="Child's Age" />
+        <textarea placeholder="Tell us about your child and what you're looking for..."></textarea>
+        <button type="submit">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Josabet's Family Child Care · Dorchester, MA · <a href="tel:6173121502">(617) 312-1502</a> · Site by <a href="#">YL Dev</a></p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      e.target.innerHTML = '<div style="text-align:center;padding:24px;color:#7de8e4;font-size:1.1rem;font-weight:700">✅ Message sent! We\'ll be in touch soon.</div>';
+    }
+  </script>
+</body>
+</html>
