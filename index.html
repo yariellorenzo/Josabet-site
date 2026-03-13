@@ -591,13 +591,15 @@
           </div>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/myknpjre" method="POST">
         <input type="text" placeholder="Your Name" required />
         <input type="tel" placeholder="Phone Number" />
         <input type="email" placeholder="Email Address" required />
         <input type="text" placeholder="Child's Age" />
         <textarea placeholder="Tell us about your child and what you're looking for..."></textarea>
         <button type="submit">Send Message →</button>
+        <input type="hidden" name="_subject" value="New inquiry from Josabet's Family Child Care website">
+        <input type="hidden" name="_next" value="https://yariellorenzo.github.io/Josabet-site/?sent=1">
       </form>
     </div>
   </section>
