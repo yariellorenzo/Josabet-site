@@ -291,12 +291,39 @@
       padding: 28px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .service-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 32px rgba(58,181,176,0.15);
     }
+
+    .learn-more {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Service detail sections */
+    .service-details { background: #fff; }
+    .detail-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      border-bottom: 1px solid #f0f0f0;
+      scroll-margin-top: 80px;
+    }
+    .detail-icon { font-size: 3rem; margin-bottom: 16px; }
+    .detail-section h2 { font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
+    .detail-section p { color: #666; line-height: 1.7; margin-bottom: 20px; }
+    .detail-section ul { list-style: none; margin-bottom: 24px; }
+    .detail-section ul li { padding: 8px 0; color: #555; border-bottom: 1px solid #f5f5f5; }
+    .detail-section ul li::before { content: "✓ "; color: var(--teal); font-weight: 700; }
 
     .service-icon {
       font-size: 2.5rem;
@@ -471,8 +498,8 @@
   <!-- STATS -->
   <div class="stats">
     <div class="stat">
-      <span class="stat-num">❤️</span>
-      <span class="stat-label">Family-Centered Care</span>
+      <span class="stat-num">👶</span>
+      <span class="stat-label">Infants Welcome</span>
     </div>
     <div class="stat">
       <span class="stat-num">🏠</span>
@@ -510,26 +537,82 @@
       <h2>Care That Fits Your Family</h2>
     </div>
     <div class="services-grid">
-      <div class="service-card">
+      <a class="service-card" href="#infant-care">
         <span class="service-icon">🍼</span>
         <h3>Infant Care</h3>
         <p>Gentle, attentive care for your littlest ones in a safe, nurturing environment.</p>
-      </div>
-      <div class="service-card">
+        <span class="learn-more">Learn more →</span>
+      </a>
+      <a class="service-card" href="#toddler">
         <span class="service-icon">🧸</span>
         <h3>Toddler Programs</h3>
         <p>Age-appropriate activities that spark curiosity, creativity, and social skills.</p>
-      </div>
-      <div class="service-card">
+        <span class="learn-more">Learn more →</span>
+      </a>
+      <a class="service-card" href="#preschool">
         <span class="service-icon">📚</span>
-        <h3>Early Learning</h3>
+        <h3>Preschool</h3>
         <p>School readiness activities to help your child thrive when kindergarten comes.</p>
-      </div>
-      <div class="service-card">
+        <span class="learn-more">Learn more →</span>
+      </a>
+      <a class="service-card" href="#scheduling">
         <span class="service-icon">🌙</span>
         <h3>Flexible Scheduling</h3>
         <p>Full-day and part-time options to fit your family's busy schedule.</p>
-      </div>
+        <span class="learn-more">Learn more →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICE DETAILS -->
+  <section class="service-details">
+    <div class="detail-section" id="infant-care">
+      <div class="detail-icon">🍼</div>
+      <h2>Infant Care</h2>
+      <p>We provide a warm, safe, and loving environment for infants from 6 weeks to 12 months. Our infant care program focuses on building trust, establishing routines, and encouraging early development through sensory play, tummy time, and one-on-one attention.</p>
+      <ul>
+        <li>Ages: 6 weeks – 12 months</li>
+        <li>Small group size for individual attention</li>
+        <li>Daily activity reports for parents</li>
+        <li>Safe sleep practices followed at all times</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Inquire Now</a>
+    </div>
+    <div class="detail-section" id="toddler">
+      <div class="detail-icon">🧸</div>
+      <h2>Toddler Programs</h2>
+      <p>Our toddler program is designed for children ages 1–3. We focus on building independence, language development, and social skills through structured play, arts and crafts, music, and outdoor activities.</p>
+      <ul>
+        <li>Ages: 1 – 3 years</li>
+        <li>Language and motor skill development</li>
+        <li>Arts, music, and outdoor play</li>
+        <li>Potty training support</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Inquire Now</a>
+    </div>
+    <div class="detail-section" id="preschool">
+      <div class="detail-icon">📚</div>
+      <h2>Preschool</h2>
+      <p>Our preschool program prepares children ages 3–5 for kindergarten. We teach letters, numbers, shapes, colors, and social skills in a fun, engaging way that makes learning feel like play.</p>
+      <ul>
+        <li>Ages: 3 – 5 years</li>
+        <li>Kindergarten readiness curriculum</li>
+        <li>Letters, numbers, shapes, and colors</li>
+        <li>Social and emotional learning</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Inquire Now</a>
+    </div>
+    <div class="detail-section" id="scheduling">
+      <div class="detail-icon">🌙</div>
+      <h2>Flexible Scheduling</h2>
+      <p>We understand every family has different needs. We offer full-day and part-time options to fit your schedule. Contact us to discuss what works best for your family.</p>
+      <ul>
+        <li>Full-day care available</li>
+        <li>Part-time options</li>
+        <li>Before and after school care</li>
+        <li>Contact us for custom schedules</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Inquire Now</a>
     </div>
   </section>
 
@@ -578,7 +661,7 @@
         </div>
         <div class="info-item">
           <span class="info-icon">📍</span>
-          <div class="info-text">5 Woodward Park Street #2<br>Dorchester, MA 02125</div>
+          <div class="info-text">5 Woodward Park Street #1<br>Dorchester, MA 02125</div>
         </div>
         <div class="info-item">
           <span class="info-icon">📞</span>
