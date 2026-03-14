@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flexible Scheduling – Josabet's Family Child Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--teal:#3ab5b0;--teal-dark:#2a9490;--dark:#1a2e3b;--light:#f0fafa;--radius:16px}
+    body{font-family:'Nunito',sans-serif;color:#444;background:#fff}
+    nav{background:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100}
+    .back{color:var(--teal);text-decoration:none;font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px}
+    .back::before{content:"‹";font-size:1.4rem}
+    .nav-title{font-weight:800;color:var(--dark);font-size:1rem}
+    .enroll-btn{background:var(--teal);color:white;padding:10px 20px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.9rem}
+    .hero{background:linear-gradient(135deg,#e8f8f8,#fff9e6);padding:60px 24px;text-align:center}
+    .hero-icon{font-size:5rem;margin-bottom:16px;display:block}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--dark);margin-bottom:12px}
+    .hero p{font-size:1.05rem;color:#666;max-width:500px;margin:0 auto}
+    .content{max-width:760px;margin:0 auto;padding:48px 24px}
+    .info-block{background:var(--light);border-radius:var(--radius);padding:28px;margin-bottom:24px}
+    .info-block h2{font-size:1.2rem;font-weight:800;color:var(--dark);margin-bottom:12px}
+    .info-block p{color:#666;line-height:1.7}
+    .checklist{list-style:none;margin-top:12px}
+    .checklist li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,0.05);color:#555}
+    .checklist li::before{content:"✓ ";color:var(--teal);font-weight:700}
+    .age-badge{display:inline-block;background:var(--teal);color:white;padding:8px 20px;border-radius:50px;font-weight:700;font-size:1rem;margin-bottom:24px}
+    .cta{text-align:center;padding:48px 24px;background:var(--dark)}
+    .cta h2{color:white;font-size:1.6rem;font-weight:800;margin-bottom:8px}
+    .cta p{color:rgba(255,255,255,0.7);margin-bottom:24px}
+    .cta a{background:var(--teal);color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;display:inline-block}
+    footer{background:#111;color:rgba(255,255,255,0.4);text-align:center;padding:16px;font-size:0.8rem}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="back" href="index.html"> Back</a>
+    <span class="nav-title">Josabet's Family Child Care</span>
+    <a class="enroll-btn" href="index.html#contact">Enroll</a>
+  </nav>
+  <div class="hero">
+    <span class="hero-icon">🌙</span>
+    <div class="age-badge">Full-Day & Part-Time</div>
+    <h1>Flexible Scheduling</h1>
+    <p>Full-day and part-time options designed to fit your family's unique schedule.</p>
+  </div>
+  <div class="content">
+    <div class="info-block">
+      <h2>About This Program</h2>
+      <p>We know every family has different needs. That is why we offer a range of scheduling options — from full-day care to part-time programs — so you can find what works best for your child and your routine.</p>
+    </div>
+    <div class="info-block">
+      <h2>What's Included</h2>
+      <ul class="checklist">
+        <li>Full-day care (Monday – Friday)</li><li>Part-time options (mornings or afternoons)</li><li>Before and after school care available</li><li>Custom schedules — contact us to discuss</li><li>Consistent daily routines for all children</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h2>Availability</h2>
+      <p>Spots are limited. Contact us today to check current availability and schedule a visit to our home.</p>
+    </div>
+  </div>
+  <div class="cta">
+    <h2>Ready to Enroll?</h2>
+    <p>Spots fill up fast. Reach out today to learn more.</p>
+    <a href="index.html#contact">Contact Us →</a>
+  </div>
+  <footer>© 2025 Josabet's Family Child Care · 5 Woodward Park Street #1, Dorchester, MA · (617) 312-1502</footer>
+</body>
+</html>
