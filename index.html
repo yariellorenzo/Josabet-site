@@ -48,12 +48,14 @@
     .logo-circle {
       width: 48px;
       height: 48px;
-      background: var(--teal);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .logo-text {
@@ -470,7 +472,7 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <div class="logo-circle">🌤️</div>
+      <div class="logo-circle"><img src="logo.jpg" alt="Josabet's logo"></div>
       <div class="logo-text">
         Josabet's Family Child Care
         <span>Where your child is unique!</span>
